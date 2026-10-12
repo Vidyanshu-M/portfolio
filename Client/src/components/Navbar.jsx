@@ -1,7 +1,7 @@
 import { useState } from "react";
 import "./Navbar.css";
 
-function Navbar() {
+function Navbar({profile}) {
   // menuOpen = is the mobile menu open right now? (true / false)
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -17,7 +17,7 @@ function Navbar() {
     <header className="navbar">
       <nav className="container navbar-inner">
         <a href="#home" className="navbar-logo" onClick={closeMenu}>
-          Vidyanshu Mishra
+          {profile.name}
         </a>
 
         <button
@@ -26,7 +26,7 @@ function Navbar() {
           aria-label="Open or close the menu"
           aria-expanded={menuOpen}
         >
-          {menuOpen ? "X" : "="}
+          {menuOpen ? "X" : "☰"}
         </button>
 
         <ul className={menuOpen ? "navbar-links open" : "navbar-links"}>
